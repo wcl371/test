@@ -18,13 +18,13 @@ import javax.servlet.http.HttpServletRequest;
 public class CartServiceImpl implements CartService {
 
     @Resource
-    private ProductService productService;
+    private ProductService productService1;
 
     @Override
     public ServerResponse buy(Integer productId,Integer count, HttpServletRequest request) {
          //验证商品是否存在
 
-        Product product=productService.selectProductById(productId);
+        Product product=productService1.selectProductById(productId);
 
         if(product==null){
            return ServerResponse.error(ServerEnum.PRODUCT_NOT_EXIST);
