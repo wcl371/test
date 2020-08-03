@@ -23,7 +23,9 @@ public class CartServiceImpl implements CartService {
     @Override
     public ServerResponse buy(Integer productId,Integer count, HttpServletRequest request) {
          //验证商品是否存在
+
         Product product=productService2.selectProductById(productId);
+
         if(product==null){
            return ServerResponse.error(ServerEnum.PRODUCT_NOT_EXIST);
         }
