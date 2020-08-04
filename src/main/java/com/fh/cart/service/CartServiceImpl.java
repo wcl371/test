@@ -35,7 +35,7 @@ public class CartServiceImpl implements CartService {
         }
          //验证购物车是否存在改商品
         User user = (User) request.getSession().getAttribute(SystemConstant.SESSION_KEY);
-        Boolean exists = RedisUtil.exists(SystemConstant.CART_KEY, productId.toString());
+        Boolean exists = RedisUtil.exists(SystemConstant.CART_KEY+user.getId(), productId.toString());
         if(!exists) {
             Cart cart = new Cart();
             cart.setCount(count);

@@ -40,12 +40,14 @@ public class OrderServiceImpl implements OrderService {
     public ServerResponse buildOrder(List<Cart> cartList, Integer payType, Integer addressId, User user) {
 
         String orderId = IdUtil.createId();
+
         List<OrderInfo> orderInfoList = new ArrayList<>();
 
         //商品总价格
         BigDecimal totalPrice = new BigDecimal("0.00");
         //库存不足集合
         List<String> stockNotFull =new LinkedList<>();
+
         for (Cart cart : cartList) {
             Product product = productService.selectProductById(cart.getProductId());
              //商品中的库存小于购物车的数量
