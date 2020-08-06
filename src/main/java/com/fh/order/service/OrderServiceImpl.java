@@ -76,10 +76,10 @@ public class OrderServiceImpl implements OrderService {
             //库存都足  保存订单详细
             for (OrderInfo orderInfo : orderInfoList) {
                 orderInfoMapper.insert(orderInfo);
-                //更新购物车
+                //更新redis购物车
                 updateRedisCart(user, orderInfo);
             }
-              //  生成订单
+              // 生成订单
             buildOrder(payType, addressId, user, orderId, totalPrice);
             return ServerResponse.success(orderId);
         }else {
