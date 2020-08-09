@@ -49,7 +49,7 @@ public class LoginInterceptor implements HandlerInterceptor {
              throw new LoginException();
          }
 
-        //验证token
+        //验证token是否正确
         boolean use = JwtUtil.verify(token);
         if(use) {
             //获取token的信息
@@ -65,9 +65,6 @@ public class LoginInterceptor implements HandlerInterceptor {
          }else {
             throw new LoginException();
         }
-
-
-
 
         return true;
     }

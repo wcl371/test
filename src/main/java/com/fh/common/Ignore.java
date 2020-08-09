@@ -7,4 +7,5 @@ import java.lang.annotation.*;
 @Retention(RetentionPolicy.RUNTIME)//定义了该注解被保留的时间的长短
 public @interface Ignore {
 
+    //不能继承其他类其它接口
 }
