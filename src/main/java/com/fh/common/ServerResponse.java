@@ -6,7 +6,6 @@ public class ServerResponse {
     private Object data;
 
     public static ServerResponse success(Object data){
-
         return  new ServerResponse(ServerEnum.SUCCESS.getCode(), ServerEnum.SUCCESS.getMsg(),data);
     }
     public static ServerResponse success(){

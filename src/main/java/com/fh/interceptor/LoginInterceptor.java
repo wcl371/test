@@ -53,9 +53,9 @@ public class LoginInterceptor implements HandlerInterceptor {
         boolean use = JwtUtil.verify(token);
         if(use) {
             //获取token的信息
-            String usetString = JwtUtil.getUser(token);
+            String userString = JwtUtil.getUser(token);
             //编译格式
-            String jsonUser = URLDecoder.decode(usetString, "utf-8");
+            String jsonUser = URLDecoder.decode(userString, "utf-8");
             //将json形式转化为对象
             User user = JSONObject.parseObject(jsonUser, User.class);
             //把对象放入session里面
